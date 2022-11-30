@@ -32,7 +32,7 @@ class Receipt
         string Rented = String.Format($"Rental time : {Times.CovertYearToThai(TimeRented)}");
         string Return = String.Format($"Return time : {Times.CovertYearToThai(TimeReturn)}");
         string Time = String.Format($"Time spent : {Times.CountHours(TimeReturn, TimeRented)} Hours");
-        string Charge = String.Format($"{Price} Bath");
+        string Charge = String.Format($"{Price} Baht");
         string Type = String.Format($"UserType : {UserType}");
 
         Font fontH = new Font("Kanit", 7);
