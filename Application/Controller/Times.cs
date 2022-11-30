@@ -20,7 +20,7 @@ public class Times
     public static double CalCharge(DateTime ReturnTime, DateTime RentedTime)// คำนวณค่าบริการ
     {
         double SumTime = ((ReturnTime - RentedTime).TotalHours);
-        return Math.Ceiling((SumTime)*15);
+        return Math.Ceiling(SumTime) * 15;
     }
     public static double CountHours(DateTime ReturnTime, DateTime RentedTime) //ชั่วโมง
     {

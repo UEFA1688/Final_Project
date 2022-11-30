@@ -32,29 +32,30 @@ class Receipt
         string Rented = String.Format($"Rental time : {Times.CovertYearToThai(TimeRented)}");
         string Return = String.Format($"Return time : {Times.CovertYearToThai(TimeReturn)}");
         string Time = String.Format($"Time spent : {Times.CountHours(TimeReturn, TimeRented)} Hours");
-        string Charge = String.Format($"Price : {Price} Bath");
+        string Charge = String.Format($"{Price} Bath");
         string Type = String.Format($"UserType : {UserType}");
         string End = ("Thank you for using");
 
-        Font fontH = new Font("Kanit", 20);
+        Font fontH = new Font("Kanit", 22);
         Font fontI = new Font("Kanit", 16);
         Font fontE = new Font("Kanit", 12);
+        Font fontCharge = new Font("Kanit", 11, FontStyle.Bold);
         SolidBrush ellipseBrush = new SolidBrush(Color.White);
-        SolidBrush textBrush = new SolidBrush(Color.Black);
+        SolidBrush textBrush = new SolidBrush(Color.Orange);
         Bitmap outputImage = new Bitmap("Picture/MDT.bmp");
         Pen Orangepen = new Pen(Color.OrangeRed, 4);
         Graphics graphics = Graphics.FromImage(outputImage);
         int x = 0;
         int y = 0;
         graphics.DrawRectangle(Orangepen, x, y, OutputImageSize, OutputImageSize);
-        if (UserType == "Visitor")
+         if (UserType == "Visitor")
         {
             graphics.DrawString(
                 Head,
                 fontH,
                 textBrush,
-                100,
-                25
+                142,
+                100
             );
             graphics.DrawString(
                 End,
@@ -65,66 +66,66 @@ class Receipt
             );
             graphics.DrawString(
                 UserNameInput,
-                fontI,
+                new Font("Kanit", 5, FontStyle.Bold),
                 textBrush,
-                130,
-                70
+                52,
+                160
             );
             graphics.DrawString(
                 Name,
-                fontI,
+                new Font("Kanit", 4, FontStyle.Bold),
                 textBrush,
-                130,
-                110
+                52,
+                200
             );
             graphics.DrawString(
                 Type,
-                fontI,
+                new Font("Kanit", 5, FontStyle.Bold),
                 textBrush,
-                130,
-                150
+                260,
+                275
             );
             graphics.DrawString(
                 Bicycle_ID,
-                fontI,
+                new Font("Kanit", 6, FontStyle.Bold),
                 textBrush,
-                130,
-                190
+                260,
+                237
             );
             graphics.DrawString(
                 Location,
-                fontI,
+                new Font("Kanit", 4, FontStyle.Bold),
                 textBrush,
-                130,
-                230
+                52,
+                240
             );
             graphics.DrawString(
                 Rented,
-                fontI,
+                new Font("Kanit", 3, FontStyle.Bold),
                 textBrush,
-                130,
+                52,
                 270
             );
             graphics.DrawString(
                 Return,
-                fontI,
+                new Font("Kanit", 3, FontStyle.Bold),
                 textBrush,
-                130,
-                310
+                52,
+                290
             );
             graphics.DrawString(
                 Time,
-                fontI,
+                new Font("Kanit", 6, FontStyle.Bold),
                 textBrush,
-                130,
-                350
+                52,
+                310
             );
             graphics.DrawString(
                 Charge,
-                fontI,
+                fontCharge,
                 textBrush,
-                130,
-                390
+                52,
+                386
             );
         }
         if (UserType == "KMUTT")
@@ -133,8 +134,8 @@ class Receipt
                 Head,
                 fontH,
                 textBrush,
-                100,
-                25
+                142,
+                100
             );
             graphics.DrawString(
                 End,
@@ -144,78 +145,79 @@ class Receipt
                 470
             );
             graphics.DrawString(
-                UserNameInput,
-                fontI,
+                Student_ID,
+                new Font("Kanit", 3, FontStyle.Bold),
                 textBrush,
-                130,
-                30
+                240,
+                360
+            );
+            graphics.DrawString(
+                UserNameInput,
+                new Font("Kanit", 5, FontStyle.Bold),
+                textBrush,
+                52,
+                160
             );
             graphics.DrawString(
                 Name,
-                fontI,
+                new Font("Kanit", 4, FontStyle.Bold),
                 textBrush,
-                130,
-                70
+                52,
+                200
             );
             graphics.DrawString(
                 Type,
-                fontI,
+                new Font("Kanit", 5, FontStyle.Bold),
                 textBrush,
-                130,
-                110
-            );
-            graphics.DrawString(
-                Student_ID,
-                fontI,
-                textBrush,
-                130,
-                150
+                260,
+                275
             );
             graphics.DrawString(
                 Bicycle_ID,
-                fontI,
+                new Font("Kanit", 6, FontStyle.Bold),
                 textBrush,
-                130,
-                190
+                260,
+                237
             );
             graphics.DrawString(
                 Location,
-                fontI,
+                new Font("Kanit", 4, FontStyle.Bold),
                 textBrush,
-                130,
-                230
+                52,
+                240
             );
             graphics.DrawString(
                 Rented,
-                fontI,
+                new Font("Kanit", 3, FontStyle.Bold),
                 textBrush,
-                130,
+                52,
                 270
             );
             graphics.DrawString(
                 Return,
-                fontI,
+                new Font("Kanit", 3, FontStyle.Bold),
                 textBrush,
-                130,
-                310
+                52,
+                290
             );
             graphics.DrawString(
                 Time,
-                fontI,
+                new Font("Kanit", 6, FontStyle.Bold),
                 textBrush,
-                130,
-                350
+                52,
+                310
             );
             graphics.DrawString(
                 Charge,
-                fontI,
+                fontCharge,
                 textBrush,
-                130,
-                390
-            );            
+                52,
+                386
+            );
         }
 
-        outputImage.Save("/receipt/"+OutputImageFilePath);
+
+        outputImage.Save(OutputImageFilePath);
         graphics.Dispose();
     }
 }
