@@ -3,8 +3,8 @@ using System.Net.Mail;
 class MailSend
 {
         public void MailOTP(string Email, int Input){
-            string fromMail = "palapol.uefa@mail.kmutt.ac.th";
-            string fromPassword = "@oSzkC7M1Zd!8E7";
+            string fromMail = "sattaphon.mo@mail.kmutt.ac.th";
+            string fromPassword = "!Mo0961915845";
 
             MailMessage message = new MailMessage();
             message.From = new MailAddress(fromMail);
@@ -22,8 +22,8 @@ class MailSend
     }
 
     public void MailReceipt(string Email, string UserName, string Time){
-            string fromMail = "palapol.uefa@mail.kmutt.ac.th";
-            string fromPassword = "@oSzkC7M1Zd!8E7";
+            string fromMail = "sattaphon.mo@mail.kmutt.ac.th";
+            string fromPassword = "!Mo0961915845";
 
             MailMessage message = new MailMessage();
             message.From = new MailAddress(fromMail);

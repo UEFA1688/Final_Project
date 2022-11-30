@@ -35,7 +35,7 @@ class Receipt
         string Charge = String.Format($"{Price} Bath");
         string Type = String.Format($"UserType : {UserType}");
 
-        Font fontH = new Font("Kanit", 22);
+        Font fontH = new Font("Kanit", 7);
         Font fontI = new Font("Kanit", 16);
         Font fontE = new Font("Kanit", 12);
         Font fontCharge = new Font("Kanit", 11, FontStyle.Bold);
