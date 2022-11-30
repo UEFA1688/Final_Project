@@ -215,7 +215,7 @@ class Receipt
             );            
         }
 
-        outputImage.Save(OutputImageFilePath);
+        outputImage.Save("/receipt/"+OutputImageFilePath);
         graphics.Dispose();
     }
 }
