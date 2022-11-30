@@ -34,7 +34,6 @@ class Receipt
         string Time = String.Format($"Time spent : {Times.CountHours(TimeReturn, TimeRented)} Hours");
         string Charge = String.Format($"{Price} Bath");
         string Type = String.Format($"UserType : {UserType}");
-        string End = ("Thank you for using");
 
         Font fontH = new Font("Kanit", 22);
         Font fontI = new Font("Kanit", 16);
@@ -56,13 +55,6 @@ class Receipt
                 textBrush,
                 142,
                 100
-            );
-            graphics.DrawString(
-                End,
-                fontE,
-                textBrush,
-                340,
-                470
             );
             graphics.DrawString(
                 UserNameInput,
@@ -136,13 +128,6 @@ class Receipt
                 textBrush,
                 142,
                 100
-            );
-            graphics.DrawString(
-                End,
-                fontE,
-                textBrush,
-                340,
-                470
             );
             graphics.DrawString(
                 Student_ID,
