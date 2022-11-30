@@ -1,0 +1,5 @@
+C:\Users\UEFA168\Desktop\Final_Project\Bussiness\obj\Debug\net6.0\Bussiness.csproj.AssemblyReference.cache
+C:\Users\UEFA168\Desktop\Final_Project\Bussiness\obj\Debug\net6.0\Bussiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UEFA168\Desktop\Final_Project\Bussiness\obj\Debug\net6.0\Bussiness.AssemblyInfoInputs.cache
+C:\Users\UEFA168\Desktop\Final_Project\Bussiness\obj\Debug\net6.0\Bussiness.AssemblyInfo.cs
+C:\Users\UEFA168\Desktop\Final_Project\Bussiness\obj\Debug\net6.0\Bussiness.csproj.CoreCompileInputs.cache
