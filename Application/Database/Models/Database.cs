@@ -92,11 +92,11 @@ class Database{
 
 
 
-     protected static void AddNewUser(User user) 
+     public static void AddNewUser(User user) 
      {
       users.Add(user);
      }
-     protected static void AddNewBicycleA() 
+     public static void AddNewBicycleA() 
      {
         for (int i = 1; i < 10; i++)
         {
@@ -104,7 +104,7 @@ class Database{
         bicycles.Add(x);
         }
      }
-     protected static void AddNewBicycleB() 
+     public static void AddNewBicycleB() 
      {
         for (int i = 10; i < 20; i++)
         {
@@ -112,7 +112,7 @@ class Database{
         bicycles.Add(x);
         }
      }
-     protected static void AddNewBicycleC() 
+     public static void AddNewBicycleC() 
      {
         for (int i = 20; i < 30; i++)
         {

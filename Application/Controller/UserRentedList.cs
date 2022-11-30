@@ -5,7 +5,7 @@ using System;
 class UserRentedList : Database
 {
     private static UserMenu userMenu = new UserMenu();
-    private static Program main = new Program();
+    private static MailSend Mail = new MailSend();
     private User user;
 
     
@@ -124,7 +124,7 @@ class UserRentedList : Database
                         if (Int32.Parse(pay) == 1)
                         {
                             int OTP = GenerateRandomNo();
-                            main.MailOTP(user.GetEmail, OTP);
+                            Mail.MailOTP(user.GetEmail, OTP);
                             Console.Clear();
                             Console.WriteLine(" ");                  
                             Console.WriteLine("    ************************************************      ");
@@ -231,7 +231,7 @@ class UserRentedList : Database
                                                     }
 
 
-                                                    main.MailReceipt(user.GetEmail, user.GetUserName, (now.ToString("yyyyMMddHHmm")));
+                                                    Mail.MailReceipt(user.GetEmail, user.GetUserName, (now.ToString("yyyyMMddHHmm")));
 
  
                                                     Console.Clear();
