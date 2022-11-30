@@ -36,12 +36,7 @@ class Database{
             {
                if (bicycle.GetStatus == "Ready")
                {
-                       DateTime start = new DateTime((int.Parse(DateTime.Now.ToString("yyyy"))), 
-                            (int.Parse(DateTime.Now.ToString("MM"))), 
-                            (int.Parse(DateTime.Now.ToString("dd"))), 
-                            (int.Parse(DateTime.Now.ToString("hh"))), 
-                            (int.Parse(DateTime.Now.ToString("mm"))), 
-                            (int.Parse(DateTime.Now.ToString("ss"))));
+                        DateTime start  = Times.GetTime();
                         UserRented UserRented = new UserRented (user.GetUserName, bicycle.GetBicycleID, bicycle.GetLocation, start, "used"); 
                         userRented.Add(UserRented);
                         bicycle.GetStatus = "used ";
@@ -53,17 +48,17 @@ class Database{
                         Console.WriteLine("                    --------------                       ");                
                         Console.WriteLine(" ");                
                }
-            else
-            {
-                  Console.Clear();
-                  Console.WriteLine(" ");  
-                  Console.WriteLine(" ");  
-                  Console.WriteLine("    ************************************************      ");
-                  Console.WriteLine($"         Bicycle ID:{input} has been rented!");
-                  Console.WriteLine("                    --------------                       ");                
-                  Console.WriteLine(" ");                   
-                  Thread.Sleep(1000); 
-                  break;            
+               else
+               {
+                     Console.Clear();
+                     Console.WriteLine(" ");  
+                     Console.WriteLine(" ");  
+                     Console.WriteLine("    ************************************************      ");
+                     Console.WriteLine($"         Bicycle ID:{input} has been rented!");
+                     Console.WriteLine("                    --------------                       ");                
+                     Console.WriteLine(" ");                   
+                     Thread.Sleep(1000); 
+                     break;            
             }
 
 
@@ -80,18 +75,13 @@ class Database{
                         {
                            if (check.GetRented == "used")
                            {
-                            DateTime end = new DateTime((int.Parse(DateTime.Now.ToString("yyyy"))), 
-                            (int.Parse(DateTime.Now.ToString("MM"))), 
-                            (int.Parse(DateTime.Now.ToString("dd"))), 
-                            (int.Parse(DateTime.Now.ToString("hh"))), 
-                            (int.Parse(DateTime.Now.ToString("mm"))), 
-                            (int.Parse(DateTime.Now.ToString("ss"))));
-                            double TimeH = ((end - check.GetTimeRented).TotalHours);
-                            double TimeM = ((end - check.GetTimeRented).TotalMinutes);
-                            double Charge = Math.Ceiling(TimeH) * 15;
+                            DateTime end = Times.GetTime();
+                            double TimeH = Times.CountHours(end, check.GetTimeRented);
+                            double TimeM = Times.CountMinutes(end, check.GetTimeRented);
+                            double Charge = Times.CalCharge(end, check.GetTimeRented);
     
                             Console.WriteLine("");  
-                            Console.WriteLine($"           {check.GetBicycleID}              {check.GetLocation}             {Math.Round(TimeM)} Minutes          {check.GetRented}          {Charge} Baht  ");  
+                            Console.WriteLine($"           {check.GetBicycleID}              {check.GetLocation}             {TimeM} Minutes          {check.GetRented}          {Charge} Baht  ");  
                            }
 
                            }

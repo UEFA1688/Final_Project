@@ -91,7 +91,7 @@ class Register{
 
 
  
-      return new Visitor(NamePrefix, FirstName, LastName, PhoneNumber ,ID_CardNumber, Email, UserName, Password, "Visitor");
+      return new Visitor(NamePrefix, FirstName, LastName, PhoneNumber ,ID_CardNumber, Email, UserName, Password, "Visitor", null);
 }
 
     private string InputFirstNameFromKeyboard() {

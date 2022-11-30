@@ -99,25 +99,21 @@ class UserRentedList : Database
             if (check.GetUserName == this.user.GetUserName && check.GetRented == "used") 
                 {
                
-                    DateTime end = new DateTime((int.Parse(DateTime.Now.ToString("yyyy"))), 
-                    (int.Parse(DateTime.Now.ToString("MM"))), 
-                    (int.Parse(DateTime.Now.ToString("dd"))), 
-                    (int.Parse(DateTime.Now.ToString("hh"))), 
-                    (int.Parse(DateTime.Now.ToString("mm"))), 
-                    (int.Parse(DateTime.Now.ToString("ss"))));
-                    double TimeH = ((end - check.GetTimeRented).TotalHours);
-                    double TimeM = ((end - check.GetTimeRented).TotalMinutes);
-                    double Charge = Math.Ceiling(TimeH) * 15;
+                    DateTime end = Times.GetTime();
+                    double TimeM = Times.CountMinutes(end, check.GetTimeRented);
+                    double Charge = Times.CalCharge(end, check.GetTimeRented);
                     Console.Clear(); 
                     Console.WriteLine("    _________________________________________________________________________________");
-                    Console.WriteLine("    |                                                                                |");
-                    Console.WriteLine($"    |                          Service Charge : {Charge} Baht                        |");
-                    Console.WriteLine("    |________________________________________________________________________________|");
+                    Console.WriteLine("    |                                                                               |");
+                    Console.WriteLine($"    |                          Service Charge : {Charge} Baht                             |");
+                    Console.WriteLine("    |_______________________________________________________________________________|");
                     Console.WriteLine(" ");
                     Console.WriteLine("          |    1 - Pay service charge.        |");
                     Console.WriteLine("          |    0 - Back to previous menu.     |");
                     Console.WriteLine(" ");
                     Console.WriteLine("");
+                    Console.Write("                  Select Menu: ");  
+
 
 
 
@@ -145,6 +141,7 @@ class UserRentedList : Database
                             Console.WriteLine($"    Service Charge : {Charge} Baht");
                             Console.WriteLine($"    UserName : {user.GetUserName}");
                             Console.WriteLine("");
+                            Console.Write("                  Enter the OTP number: ");  
   
                             string input = Console.ReadLine();
                             char xInput = input[0]; 
@@ -162,9 +159,9 @@ class UserRentedList : Database
                                     Console.WriteLine(" ");                                           
                                     Thread.Sleep(1000);
                                     Console.Clear();                                   
-                                    Console.WriteLine(    "___________________________________________________________________________________________");
+                                    Console.WriteLine("    ___________________________________________________________________________________________");
                                     Console.WriteLine("    |                                                                                          |");
-                                    Console.WriteLine($"    |                         At which station do you return the bike?                        |");
+                                    Console.WriteLine("    |                         At which station do you return the bike?                         |");
                                     Console.WriteLine("    |__________________________________________________________________________________________|");
                                     Console.WriteLine(" ");
                                     Console.WriteLine("          Select Location   ");
@@ -178,42 +175,63 @@ class UserRentedList : Database
                                     char b = a[0]; 
                                     if (char.IsDigit(b))
                                     {                                     
-                                    if (Int32.Parse(a) == 1 || Int32.Parse(a) == 2 || Int32.Parse(a) == 3 || Int32.Parse(a) == 0)
+                                    if (int.Parse(a) == 1 || int.Parse(a) == 2 || int.Parse(a) == 3 || int.Parse(a) == 0)
                                         {
 
                                             foreach (Bicycle bicycle in bicycles)
                                             {
                                                 if (bicycle.GetBicycleID == check.GetBicycleID) 
                                                 {
-                                                    check.GetTimeRented = DateTime.Now;
-                                                    check.GetRented = "returned ";
-                                                    bicycle.GetStatus = "Ready ";
-                                                    if (Int32.Parse(a) == 1)
+                                                    check.GetRented = "returned";
+                                                    bicycle.GetStatus = "Ready";
+                                                    DateTime now = Times.GetTime();                                                   
+                                                    if (int.Parse(a) == 1)
                                                     {
                                                         bicycle.GetLocation = "A";
                                                     }
-                                                    if (Int32.Parse(a) == 2)
+                                                    if (int.Parse(a) == 2)
                                                     {
                                                         bicycle.GetLocation = "B";
                                                     }
-                                                    if (Int32.Parse(a) == 3)
+                                                    if (int.Parse(a) == 3)
                                                     {
                                                         bicycle.GetLocation = "C";
                                                     }
-                                                    if (Int32.Parse(a) == 0){
+                                                    if (int.Parse(a) == 0){
                                                         ShowUserRentedList(this.user); 
                                                     }
 
-                                                    Receipt.Print_Picture(user.GetUserName, 
-                                                    bicycle.GetBicycleID, 
-                                                    null, 
-                                                    check.GetLocation, 
-                                                    check.GetBicycleID, 
-                                                    check.GetTimeRented,
-                                                    (DateTime.Now.ToString("yyyyMMddHHmm")), 
-                                                    Charge);
+                                                    if (user.GetUserType == "Visitor")
+                                                    {
+                                                        Receipt.Print_Picture(user.GetUserType, 
+                                                        null, 
+                                                        user.GetUserName,
+                                                        user.GetNamePrefix, 
+                                                        user.GetFirstName, 
+                                                        user.GetLastName, 
+                                                        check.GetBicycleID,
+                                                        bicycle.GetLocation,
+                                                        check.GetTimeRented,
+                                                        now,
+                                                        Charge);                                                         
+                                                    }
+                                                    if (user.GetUserType == "KMUTT")
+                                                    {
+                                                        Receipt.Print_Picture(user.GetUserType, 
+                                                        user.GetStudentID, 
+                                                        user.GetUserName,
+                                                        user.GetNamePrefix, 
+                                                        user.GetFirstName, 
+                                                        user.GetLastName, 
+                                                        check.GetBicycleID,
+                                                        bicycle.GetLocation,
+                                                        check.GetTimeRented,
+                                                        now, 
+                                                        Charge);                                                        
+                                                    }
 
-                                                    main.MailReceipt(user.GetEmail, user.GetUserName, DateTime.Now.ToString("yyyyMMddHHmm"));
+
+                                                    main.MailReceipt(user.GetEmail, user.GetUserName, (now.ToString("yyyyMMddHHmm")));
 
  
                                                     Console.Clear();

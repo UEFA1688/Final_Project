@@ -27,7 +27,7 @@ class Reservation : Database
         Console.Clear();
         Console.WriteLine("    __________________________________________________________");
         Console.WriteLine("    |                                                        |");
-        Console.WriteLine($"    |                VEHICLES LIST LOCATION {input}                |");
+        Console.WriteLine($"    |                VEHICLES LIST LOCATION {input}                    |");
         Console.WriteLine("    |________________________________________________________|");
         Console.WriteLine("     ________________________________________________________");
         Console.WriteLine("     |      ID      |      Location     |       Status      |");

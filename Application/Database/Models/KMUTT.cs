@@ -7,20 +7,16 @@ class KMUTT: User {
       string NamePrefix, 
       string FirstName, 
       string LastName, 
-      string PhoneNumber,
-      string StudentID,
+      string PhoneNumber ,
       string ID_CardNumber, 
       string Email, 
       string UserName, 
       string Password,
-      string UserType)
-     :base(NamePrefix, FirstName, LastName, PhoneNumber, ID_CardNumber, Email, UserName, Password, UserType){
-
-        this.StudentID = GetStudentID= StudentID;
+      string UserType,
+      string StudentID)
+     :base(NamePrefix, FirstName, LastName, PhoneNumber, ID_CardNumber, Email, UserName, Password, UserType, StudentID){
+          this.UserType = "KMUTT";
 
      }
-
-
-     public string GetStudentID {get;}
 
 }

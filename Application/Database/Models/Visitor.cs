@@ -8,8 +8,9 @@ class Visitor: User {
       string Email, 
       string UserName, 
       string Password,
-      string UserType)
-     :base(NamePrefix, FirstName, LastName, PhoneNumber, ID_CardNumber, Email, UserName, Password, UserType){
+      string UserType,
+      string StudentID)
+     :base(NamePrefix, FirstName, LastName, PhoneNumber, ID_CardNumber, Email, UserName, Password, UserType, StudentID){
           this.UserType = "Visitor";
 
      }

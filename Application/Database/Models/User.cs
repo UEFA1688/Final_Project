@@ -10,6 +10,7 @@ class User {
     protected string UserName;
     protected string Password;
     protected string UserType;
+    protected string StudentID;
 
     public User( 
       string NamePrefix, 
@@ -20,7 +21,8 @@ class User {
       string Email, 
       string UserName, 
       string Password,
-      string UserType) 
+      string UserType, 
+      string StudentID) 
       {
         this.NamePrefix = GetNamePrefix = NamePrefix;
         this.FirstName = GetFirstName = FirstName;
@@ -31,6 +33,7 @@ class User {
         this.UserName = GetUserName = UserName;
         this.Password = GetPassword = Password;
         this.UserType = GetUserType = UserType;
+        this.StudentID = GetStudentID = StudentID;
 
 
     }
@@ -44,6 +47,7 @@ class User {
    public string GetUserName {get;}
    public string GetPassword {get;}
    public string GetUserType {get;}
+   public string GetStudentID {get;}
 
 
   }
