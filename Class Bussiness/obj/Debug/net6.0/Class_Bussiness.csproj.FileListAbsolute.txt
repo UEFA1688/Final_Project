@@ -1,5 +1,0 @@
-C:\Users\UEFA168\Desktop\Final_Project\Class Bussiness\obj\Debug\net6.0\Class_Bussiness.csproj.AssemblyReference.cache
-C:\Users\UEFA168\Desktop\Final_Project\Class Bussiness\obj\Debug\net6.0\Class_Bussiness.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\UEFA168\Desktop\Final_Project\Class Bussiness\obj\Debug\net6.0\Class_Bussiness.AssemblyInfoInputs.cache
-C:\Users\UEFA168\Desktop\Final_Project\Class Bussiness\obj\Debug\net6.0\Class_Bussiness.AssemblyInfo.cs
-C:\Users\UEFA168\Desktop\Final_Project\Class Bussiness\obj\Debug\net6.0\Class_Bussiness.csproj.CoreCompileInputs.cache
